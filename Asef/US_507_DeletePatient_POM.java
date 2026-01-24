@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import javax.tools.Tool;
 import java.util.Objects;
 
 public class US_507_DeletePatient_POM extends BaseDriver {
@@ -23,7 +22,7 @@ public class US_507_DeletePatient_POM extends BaseDriver {
 
    @Test(dataProvider = "ValidData")
            public void DeletePatient(String username,String password){
-       Delete_Patient_Elements elements=new Delete_Patient_Elements();
+       Patient_Elements elements=new Patient_Elements();
 
 
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.username))).sendKeys(username);
