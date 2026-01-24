@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
 import java.awt.*;
 import java.time.Duration;
 
-public class BaseDriverparameter {
+public class BaseDriverParameter {
 
         public static WebDriver driver;
         public static WebDriverWait wait;
