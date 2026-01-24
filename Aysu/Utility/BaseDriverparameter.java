@@ -1,5 +1,6 @@
-package Utility;
+package Aysu.Utility;
 
+import Utility.Tools;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -14,31 +15,34 @@ import java.awt.*;
 import java.time.Duration;
 
 public class BaseDriverparameter {
-    public static WebDriver driver;
-    public static WebDriverWait wait;
 
-    @BeforeClass
-    @Parameters("brauzer")
-    public void Bashlangic(String baruzer) throws InterruptedException, AWTException {
-        switch (baruzer.toLowerCase()){
-            case "firefox" : driver=new FirefoxDriver(); break;
-            case "edge" : driver = new EdgeDriver(); break;
-            case "safari" : driver = new SafariDriver(); break;
-            default:driver = new ChromeDriver();
+        public static WebDriver driver;
+        public static WebDriverWait wait;
+
+        @BeforeClass
+        @Parameters("brauzer")
+        public void Bashlangic(String baruzer) throws InterruptedException, AWTException {
+            switch (baruzer.toLowerCase()){
+                case "firefox" : driver=new FirefoxDriver(); break;
+                case "edge" : driver = new EdgeDriver(); break;
+                case "safari" : driver = new SafariDriver(); break;
+                default:driver = new ChromeDriver();
+            }
+
+            wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+
         }
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        @AfterClass
+        public void Baglanish() {
+            Tools.Wait(3);
+            driver.quit();
+        }
 
 
     }
 
-    @AfterClass
-    public void Baglanish() {
-        Tools.Wait(3);
-        driver.quit();
-    }
 
-
-}
