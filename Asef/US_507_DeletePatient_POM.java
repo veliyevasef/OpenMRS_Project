@@ -27,7 +27,8 @@ public class US_507_DeletePatient_POM extends BaseDriver {
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.searchBox))).clear();
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.searchBox))).sendKeys("Jo");
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.raw1))).getText();
-       String xeste= elements.raw1.getText();
+       String xeste= elements.raw1.getText().substring(0,6);
+       System.out.println(xeste);
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.raw1))).click();
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.DeletePatient))).click();
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.inputReason))).sendKeys("Just Delete");
