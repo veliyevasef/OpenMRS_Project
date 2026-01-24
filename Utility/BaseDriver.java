@@ -15,17 +15,20 @@ import org.testng.annotations.BeforeClass;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BaseDriver {
 
     public static WebDriver driver;
     public static WebDriverWait wait;
-
+    public static Logger logAdd = LogManager.getLogger();
     @BeforeClass
     public void Bashlangic() throws InterruptedException, AWTException {
-
+        logAdd.info("Loglama bashladildi");
 
         driver = new ChromeDriver();
+        logAdd.info("Driver bashladildi");
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
@@ -39,11 +42,13 @@ public class BaseDriver {
     public void Baglanish() {
         Tools.Wait(3);
         driver.quit();
+        logAdd.info("Browserden chixish edildi");
 
     }
 
     public void Login() throws AWTException, InterruptedException {
         driver.get("https://o2.openmrs.org/");
+        logAdd.info("Hompage-e gedildi");
 
 
     }
