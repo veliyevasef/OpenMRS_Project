@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Delete_Patient_Elements {
-    public Delete_Patient_Elements() {
+public class Patient_Elements {
+    public Patient_Elements() {
 
         PageFactory.initElements(BaseDriver.driver,this);
     }
@@ -51,6 +51,12 @@ public class Delete_Patient_Elements {
 
     @FindBy(xpath = "//*[text()='No matching records found']")
     public WebElement assertDeletedPatient;
+
+    @FindBy(xpath = "//a[@id='patient-search-results-table_last']")
+    public WebElement lastPage;
+
+    @FindBy(xpath = "//*[@id='patient-search-results-table_info']")
+    public WebElement PatientCount;
 
 
 
