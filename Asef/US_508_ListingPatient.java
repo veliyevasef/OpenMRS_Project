@@ -29,9 +29,13 @@ public class US_508_ListingPatient extends BaseDriver {
 
 
         Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.username))).sendKeys(username);
+        logAdd.info("Username yazildi");
         Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.password))).sendKeys(password);
+        logAdd.info("Password yazildi");
         Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.location))).click();
+        logAdd.info("Locatioin sechildi");
         Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.loginBtn))).click();
+        logAdd.info("Login duymesi klik edildi");
         Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.msg))).getText();
         Assert.assertEquals(elements.msg.getText(),
                 "Logged in as Super User (admin) at Inpatient Ward.","Title eyni deyil");
