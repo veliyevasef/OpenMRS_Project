@@ -26,9 +26,13 @@ public class US_507_DeletePatient_POM extends BaseDriver {
 
 
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.username))).sendKeys(username);
+       logAdd.info("Username yazildi");
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.password))).sendKeys(password);
+       logAdd.info("Password yazildi");
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.location))).click();
+       logAdd.info("Locatioin sechildi");
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.loginBtn))).click();
+       logAdd.info("Login duymesi klik edildi");
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.msg))).getText();
        Assert.assertEquals(elements.msg.getText(),
                "Logged in as Super User (admin) at Inpatient Ward.","Title eyni deyil");
@@ -45,6 +49,7 @@ public class US_507_DeletePatient_POM extends BaseDriver {
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.raw1))).getText();
        String xeste= elements.raw1.getText().substring(0,6);
        System.out.println("Sechilmish Xestenin ID-i: "+xeste);
+       logAdd.info("Sechilmish Xestenin ID-i",xeste);
        Tools.Wait(3);
 
        Objects.requireNonNull(wait.until(ExpectedConditions.elementToBeClickable(elements.raw1))).click();
@@ -56,6 +61,7 @@ public class US_507_DeletePatient_POM extends BaseDriver {
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.searchBox))).clear();
        Objects.requireNonNull(wait.until(ExpectedConditions.visibilityOf(elements.searchBox))).sendKeys(xeste);
        System.out.println("Silinen xestenin ID-i: "+xeste);
+       logAdd.info("Silinen xestenin ID-i: ", xeste);
        wait.until(ExpectedConditions.visibilityOf(elements.assertDeletedPatient));
        Assert.assertEquals(elements.assertDeletedPatient.getText(),"No matching records found","Eyni deyil");
 
