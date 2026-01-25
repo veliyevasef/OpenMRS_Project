@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.Objects;
 
-public class US_508_ListingPatient extends BaseDriver {
+public class US_508_ListingPatient_POM extends BaseDriver {
 
 
     @DataProvider
