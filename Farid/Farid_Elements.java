@@ -58,7 +58,6 @@ public class Farid_Elements {
     @FindBy(className = "given_name")
     public WebElement registeredName;
 
-    // Address hissəsi
     @FindBy(id = "address1")
     public WebElement address1;
 
@@ -74,7 +73,6 @@ public class Farid_Elements {
     @FindBy(id = "postalCode")
     public WebElement postalCode;
 
-    // Telefon hissəsi
     @FindBy(name = "phoneNumber")
     public WebElement phoneNumber;
 }
