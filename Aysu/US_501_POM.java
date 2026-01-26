@@ -59,6 +59,13 @@ public class US_501_POM extends Basedriver {
         };
 
 
+    }@AfterMethod
+    void logout() {
+        try {
+            elements.logoutbtn.click();
+        } catch (Exception e) {
+
+        }
     }
 
 
