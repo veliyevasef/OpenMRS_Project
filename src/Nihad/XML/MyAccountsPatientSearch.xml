@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="OpenMRS Regression Suite" verbose="1">
+
+    <test name="US_505 - MyAccounts">
+        <classes>
+            <class name="Nihad.US_505_MyAccounts_POM"/>
+        </classes>
+    </test>
+
+    <test name="US_506 - PatientSearch">
+        <classes>
+            <class name="Nihad.US_506_PatientSearch_POM"/>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="OpenMRS Suite" verbose="1" parallel="false">
+
+    <test name="Patient Search Tests">
+        <classes>
+            <class name="Nihad.US_506_PatientSearch_POM"/>
+        </classes>
+    </test>
+
+</suite>
