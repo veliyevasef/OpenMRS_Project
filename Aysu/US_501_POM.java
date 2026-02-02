@@ -17,23 +17,19 @@ public class US_501_POM extends Basedriver {
         elements.username.clear();
         elements.password.clear();
         elements.loginbtn.click();
+        elements.username.sendKeys(user);
+        elements.password.sendKeys(passw);
 
-        if (user != null) {
-            elements.username.sendKeys(user);
-        }
-        if (passw != null) {
-            elements.password.sendKeys(passw);
 
-        }
         switch (location) {
             case "inpatientw":
-                elements.inpatientward.sendKeys(location);
+                elements.inpatientward.click();
                 break;
             case "isolationw":
-                elements.isolationward.sendKeys(location);
+                elements.isolationward.click();
                 break;
             case "labor":
-                elements.laboratory.sendKeys(location);
+                elements.laboratory.click();
                 break;
         }
         elements.loginbtn.click();

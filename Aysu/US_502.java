@@ -10,35 +10,32 @@ public class US_502 extends Basedriver {
     US_501 elements;
 
     @Test(dataProvider = "loginLocation")
-    void test502(String user,String passw,String location) {
+    void test502(String user, String passw, String location) {
         elements = new US_501();
         elements.username.clear();
         elements.password.clear();
+        elements.username.sendKeys(user);
+        elements.password.sendKeys(passw);
 
-        if(user!=null) {
-            elements.username.sendKeys(user);
-        }if(passw!=null) {
-            elements.password.sendKeys(passw);
-        }
 
         switch (location) {
             case "inpatientw":
-                elements.inpatientward.sendKeys(location);
+                elements.inpatientward.click();
                 break;
             case "isolationw":
-                elements.isolationward.sendKeys(location);
+                elements.isolationward.click();
                 break;
             case "labor":
-                elements.laboratory.sendKeys(location);
+                elements.laboratory.click();
                 break;
             case "outpatientw":
-                elements.outpatientclinic.sendKeys(location);
+                elements.outpatientclinic.click();
                 break;
             case "pharmcy":
-                elements.pharmacy.sendKeys(location);
+                elements.pharmacy.click();
                 break;
             case "registrationd":
-                elements.registrationdesk.sendKeys(location);
+                elements.registrationdesk.click();
                 break;
         }
 
@@ -58,14 +55,13 @@ public class US_502 extends Basedriver {
     }
 
 
+    @AfterMethod
+    void logout() {
+        try {
+            elements.logoutbtn.click();
+        } catch (Exception e) {
 
-
-@AfterMethod
-void logout() {
-    try {
-        elements.logoutbtn.click();
-    } catch (Exception e) {
-
+        }
     }
-}}
+}
 
