@@ -1,49 +1,55 @@
 package Utility;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.time.Duration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class BaseDriverParameter {
+public class BaseDriver {
+
     public static WebDriver driver;
     public static WebDriverWait wait;
-
+    public static Logger logAdd = LogManager.getLogger();
     @BeforeClass
-    @Parameters("baruzer")
-    public void Bashlangic(String baruzer) throws InterruptedException, AWTException {
-        switch (baruzer.toLowerCase()){
-            case "firefox" : driver=new FirefoxDriver(); break;
-            case "edge" : driver = new EdgeDriver(); break;
-            case "safari" : driver = new SafariDriver(); break;
-            default:driver = new ChromeDriver();
-        }
+    public void Bashlangic() throws InterruptedException, AWTException {
+        logAdd.info("Loglama bashladildi");
+
+        driver = new ChromeDriver();
+        logAdd.info("Driver bashladildi");
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        driver.manage().window().maximize();
 
-
+        Login();
     }
 
     @AfterClass
     public void Baglanish() {
         Tools.Wait(3);
         driver.quit();
+        logAdd.info("Browserden chixish edildi");
+
     }
 
+    public void Login() throws AWTException, InterruptedException {
+        driver.get("https://o2.openmrs.org/");
+        logAdd.info("Hompage-e gedildi");
 
-}
+
+    }
+
+    }
