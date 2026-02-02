@@ -1,7 +1,6 @@
 package Aysu;
 
 import Aysu.Utility.Basedriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

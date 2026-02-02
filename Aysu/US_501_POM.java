@@ -54,15 +54,21 @@ public class US_501_POM extends Basedriver {
                 {"", "", ""},                         //yanlis  //login olmur  //passed
                 {"admin", "abc", "inpatientw"},       //yanlis  //login olmur  //passed
                 {"user", "Admin123", "isolationw"},   //yanlis  //login olmur  //passed
-                {"user", "123", "inpatientw"},        //yanlis  //login olmur  //passed
-                {"admin", "Admin123", "isolationw"},  //dogru  //login olur  //failed
-        };
+                {"user", "123", "inpatientw"}};       //yanlis  //login olmur  //passed
 
 
     }
 
+    @AfterMethod
+    void logout() {
+        try {
+            elements.logoutbtn.click();
+        } catch (Exception e) {
 
-
+        }
     }
+
+
+}
 
 
